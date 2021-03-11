@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "mtb310_ag_financeiro")
 public class AgFinanceiro {
@@ -26,7 +28,7 @@ public class AgFinanceiro {
     private double volumeTransacional;
 
     @OneToMany(mappedBy = "agFinanceiro")
-    // @JsonIgnoreProperties("agFinanceiro")
+    @JsonIgnoreProperties("agFinanceiro")
     private List<Transacao> transacoes;
 
     public int getId() {
@@ -53,9 +55,9 @@ public class AgFinanceiro {
         this.volumeTransacional = volumeTransacional;
     }
 
-    public List<Transacao> getTransacoes() {
-        return transacoes;
-    }
+    // public List<Transacao> getTransacoes() {
+    //     return transacoes;
+    // }
 
     public void setTransacoes(List<Transacao> transacoes) {
         this.transacoes = transacoes;
