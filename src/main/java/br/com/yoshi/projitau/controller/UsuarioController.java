@@ -25,11 +25,12 @@ public class UsuarioController {
     private UsuarioRepo usuarioRepo;
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<Usuario> obterUsuarioPorId(@PathVariable int id) {
+    public ResponseEntity<UsuarioDTO> obterUsuarioPorId(@PathVariable int id) {
         Usuario userFound = usuarioRepo.findById(id).orElse(null); // findById busca pela PK
 
         if (userFound != null) {
-            return ResponseEntity.ok(userFound); // OK = 200
+            UsuarioDTO usuario = new UsuarioDTO(userFound);
+            return ResponseEntity.ok(usuario); // OK = 200
         }
 
         return ResponseEntity.notFound().build(); // NOT FOUND = 404
