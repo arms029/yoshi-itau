@@ -9,6 +9,12 @@ import br.com.yoshi.projitau.dto.ContagemStatusDTO;
 import br.com.yoshi.projitau.model.Transacao;
 
 public interface TransacaoRepo extends CrudRepository<Transacao, Integer> {
-    @Query("SELECT new br.paduan.projFinal.dto.ContagemStatus(t.agente.nomeAgente, t.agente.volumeTransacional, t.status, COUNT(t.status)) FROM Transacao AS t WHERE t.agente.idAgente = ?1 GROUP BY t.agente.nomeAgente, t.status ORDER By t.status")
-    List<ContagemStatusDTO> countStatusByAgent(int idAgente);
+    // @Query("SELECT br.com.yoshi.projitau.dto.ContagemStatusDTO(t.agFinanceiro.nome, t.agFinanceiro.volumeTransacional, t.status, COUNT(t.status)) FROM Transacao AS t WHERE t.agFinanceiro.id = ?1 GROUP BY t.agFinanceiro.nome, t.status ORDER By t.status")
+    // List<ContagemStatusDTO> countStatusByAgent(int idAgente);
+
+    // @Query(
+    // value = "SELECT * FROM Users ORDER BY id \n-- #pageable\n",
+    // countQuery = "SELECT count(*) FROM Users",
+    // nativeQuery = true)
+    // List<ContagemStatusDTO> teste(int idAgente);
 }

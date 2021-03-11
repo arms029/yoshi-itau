@@ -1,50 +1,35 @@
-package br.com.yoshi.projitau.controller;
+// package br.com.yoshi.projitau.controller;
 
-import java.util.List;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.http.ResponseEntity;
+// import org.springframework.web.bind.annotation.CrossOrigin;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import br.com.yoshi.projitau.model.AgFinanceiro;
-import br.com.yoshi.projitau.repository.AgFinanceiroRepo;
+// import br.com.yoshi.projitau.dto.ContagemStatusDTO;
+// import br.com.yoshi.projitau.repository.TransacaoRepo;
 
 
+// @RestController
+// @CrossOrigin("*") // requisições de qualquer origem
+// @RequestMapping("/transacao")
+// public class TransacaoController {
 
-@RestController
-@CrossOrigin("*") // requisições de qualquer origem
-@RequestMapping("/transacao")
-public class TransacaoController {
+//     @Autowired
+//     private TransacaoRepo transacaoRepo;
 
-    @Autowired
-    private AgFinanceiroRepo agFinanceiroRepo;
+//     @GetMapping("/id/{id}")
+//     public ResponseEntity<ContagemStatusDTO> getAgFinanceiroById(@PathVariable int id) {
+//         ContagemStatusDTO transacoes = (ContagemStatusDTO) transacaoRepo.countStatusByAgent(id); // findById busca pela PK
 
-    @GetMapping("/id/{id}")
-    public ResponseEntity<AgFinanceiro> getAgFinanceiroById(@PathVariable int id) {
-        AgFinanceiro agenteFinanceiro = agFinanceiroRepo.findById(id).orElse(null); // findById busca pela PK
+//         if (transacoes != null) {
+//             return ResponseEntity.ok(transacoes); // OK = 200
+//         }
 
-        if (agenteFinanceiro != null) {
-            return ResponseEntity.ok(agenteFinanceiro); // OK = 200
-        }
+//         return ResponseEntity.notFound().build(); // NOT FOUND = 404
+//     }
 
-        return ResponseEntity.notFound().build(); // NOT FOUND = 404
-    }
 
-    @GetMapping("/top10")
-    public ResponseEntity<List<AgFinanceiro>> getTopAgFinanceiroByQtde() {
-        List<AgFinanceiro> agFinanceiros = (List<AgFinanceiro>) agFinanceiroRepo.findTop10ByOrderByVolumeTransacionalDesc();
-
-        if (agFinanceiros != null) {
-            // List<AgFinanceiroDTO> usuario = new AgFinanceiroDTO(agFinanceiros);
-            return ResponseEntity.ok(agFinanceiros); // OK = 200
-        }
-
-        return ResponseEntity.status(404).build(); // NOT FOUND = 404
-
-    }
-
-}
+// }
