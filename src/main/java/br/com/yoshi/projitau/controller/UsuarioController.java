@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.yoshi.projitau.dto.UsuarioDTO;
 import br.com.yoshi.projitau.model.Usuario;
 import br.com.yoshi.projitau.repository.UsuarioRepo;
 
@@ -35,12 +36,13 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> login(@RequestBody Usuario user) {
+    public ResponseEntity<UsuarioDTO> login(@RequestBody Usuario user) {
         Usuario userFound = usuarioRepo.findByEmailOrRacf(user.getEmail(), user.getRacf());
 
         if (userFound != null && user.getSenha() != null) {
             if (user.getSenha().equals(userFound.getSenha())) {
-                return ResponseEntity.ok(userFound); // OK = 200
+                UsuarioDTO usuario = new UsuarioDTO(userFound);
+                return ResponseEntity.ok(usuario); // OK = 200
             }
         }
 
