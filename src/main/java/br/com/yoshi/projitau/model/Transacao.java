@@ -20,7 +20,7 @@ public class Transacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_transacao")
-    private int id;
+    private int id; //PK
 
     @Column(name="data_hora")
     private LocalDate dataHora;
@@ -40,7 +40,7 @@ public class Transacao {
     @ManyToOne
     @JoinColumn(name = "ag_financeiro")
     @JsonIgnoreProperties("transacoes")
-    private AgFinanceiro agFinanceiro;
+    private AgFinanceiro agFinanceiro; //FK
 
     public int getId() {
         return id;

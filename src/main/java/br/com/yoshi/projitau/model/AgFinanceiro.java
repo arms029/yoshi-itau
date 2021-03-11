@@ -19,7 +19,7 @@ public class AgFinanceiro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_agente")
-    private int id;
+    private int id; //PK
 
     @Column(name="nome_agente", length = 100)
     private String nome;
