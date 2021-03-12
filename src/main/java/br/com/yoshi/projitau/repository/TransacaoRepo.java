@@ -15,5 +15,5 @@ public interface TransacaoRepo extends CrudRepository<Transacao, Integer> {
     "WHERE t.agFinanceiro.id = ?1 " +
     "GROUP BY t.agFinanceiro.nome, t.status " +
     "ORDER By t.status")
-    List<ContagemStatusDTO> teste(int idAgente);
+    List<ContagemStatusDTO> findByContagemStatus(int idAgente);
 }
