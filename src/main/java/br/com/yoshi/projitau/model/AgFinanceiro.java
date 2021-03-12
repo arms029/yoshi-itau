@@ -25,7 +25,7 @@ public class AgFinanceiro {
     private String nome;
 
     @Column(name="volume_transacional")
-    private double volumeTransacional;
+    private int volumeTransacional;
 
     @OneToMany(mappedBy = "agFinanceiro")
     @JsonIgnoreProperties("agFinanceiro")
@@ -47,13 +47,7 @@ public class AgFinanceiro {
         this.nome = nome;
     }
 
-    public double getVolumeTransacional() {
-        return volumeTransacional;
-    }
-
-    public void setVolumeTransacional(double volumeTransacional) {
-        this.volumeTransacional = volumeTransacional;
-    }
+ 
 
     // public List<Transacao> getTransacoes() {
     //     return transacoes;
@@ -61,6 +55,18 @@ public class AgFinanceiro {
 
     public void setTransacoes(List<Transacao> transacoes) {
         this.transacoes = transacoes;
+    }
+
+    public int getVolumeTransacional() {
+        return volumeTransacional;
+    }
+
+    public void setVolumeTransacional(int volumeTransacional) {
+        this.volumeTransacional = volumeTransacional;
+    }
+
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }   
 
     

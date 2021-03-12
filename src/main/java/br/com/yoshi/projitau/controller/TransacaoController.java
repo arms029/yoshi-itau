@@ -24,7 +24,7 @@ public class TransacaoController {
 
     @GetMapping("/id/{id}")
     public ResponseEntity<List<ContagemStatusDTO>> getAgFinanceiroById(@PathVariable int id) {
-        List<ContagemStatusDTO> transacoes = transacaoRepo.countStatusByAgent(id); // findById busca pela PK
+        List<ContagemStatusDTO> transacoes = transacaoRepo.teste(id); // findById busca pela PK
 
         if (transacoes != null) {
             return ResponseEntity.ok(transacoes); // OK = 200

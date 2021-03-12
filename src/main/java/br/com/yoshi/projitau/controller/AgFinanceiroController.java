@@ -1,5 +1,6 @@
 package br.com.yoshi.projitau.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.yoshi.projitau.dto.AgFinanceiroDTO;
 import br.com.yoshi.projitau.model.AgFinanceiro;
 import br.com.yoshi.projitau.repository.AgFinanceiroRepo;
 
@@ -35,12 +37,13 @@ public class AgFinanceiroController {
     }
 
     @GetMapping("/top10")
-    public ResponseEntity<List<AgFinanceiro>> getTopAgFinanceiroByQtde() {
+    public ResponseEntity<List<AgFinanceiroDTO>> getTopAgFinanceiroByQtde() {
         List<AgFinanceiro> agFinanceiros = (List<AgFinanceiro>) agFinanceiroRepo.findTop10ByOrderByVolumeTransacionalDesc();
 
         if (agFinanceiros != null) {
-            // List<AgFinanceiroDTO> usuario = new AgFinanceiroDTO(agFinanceiros);
-            return ResponseEntity.ok(agFinanceiros); // OK = 200
+            List<AgFinanceiroDTO> agFinanceirosDTO = new ArrayList<AgFinanceiroDTO>();
+            agFinanceiros.forEach((ag) -> agFinanceirosDTO.add(new AgFinanceiroDTO(ag)));  
+            return ResponseEntity.ok(agFinanceirosDTO); // OK = 200
         }
 
         return ResponseEntity.status(404).build(); // NOT FOUND = 404

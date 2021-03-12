@@ -6,18 +6,13 @@ public class AgFinanceiroDTO {
 
     private int id;
     private String nome;
-    private double volumeTransacional;
+    private int volumeTransacional;
 
     public AgFinanceiroDTO(AgFinanceiro agFinanceiro){
         this.id = agFinanceiro.getId();
         this.nome = agFinanceiro.getNome();
         this.volumeTransacional = agFinanceiro.getVolumeTransacional();
     }
-    // public AgFinanceiroDTO(List<AgFinanceiro> agFinanceiros){
-    //     this.id = agFinanceiro.getId();
-    //     this.nome = agFinanceiro.getNome();
-    //     this.volumeTransacional = agFinanceiro.getVolumeTransacional();
-    // }
 
     public int getId() {
         return id;
@@ -35,12 +30,14 @@ public class AgFinanceiroDTO {
         this.nome = nome;
     }
 
-    public double getVolumeTransacional() {
+    public int getVolumeTransacional() {
         return volumeTransacional;
     }
 
-    public void setVolumeTransacional(double volumeTransacional) {
+    public void setVolumeTransacional(int volumeTransacional) {
         this.volumeTransacional = volumeTransacional;
     }
+
+
     
 }
