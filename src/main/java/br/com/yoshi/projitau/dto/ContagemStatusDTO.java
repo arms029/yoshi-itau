@@ -1,70 +1,48 @@
 package br.com.yoshi.projitau.dto;
 
 public class ContagemStatusDTO {
-    private int agFinanceiro;
-    private String nomeAgente;
-    private int volumeTransacional;
-    private long sucessos;
-    private long falhas;
-    private long fraudes;
+    private String agente;
+    private double volumeTransacional;
+    private int status;
+    private long count;
 
-    public ContagemStatusDTO(int agFinanceiro, String nomeAgente, int volumeTransacional, long sucessos, long falhas,
-            long fraudes) {
-        this.agFinanceiro = agFinanceiro;
-        this.nomeAgente = nomeAgente;
+    public ContagemStatusDTO(String agente, double volumeTransacional, int status, long count) {
+        this.agente = agente;
         this.volumeTransacional = volumeTransacional;
-        this.sucessos = sucessos;
-        this.falhas = falhas;
-        this.fraudes = fraudes;
+        this.status = status;
+        this.count = count;
     }
 
-    public int getAgFinanceiro() {
-        return agFinanceiro;
+    public String getAgente() {
+        return agente;
     }
 
-    public void setAgFinanceiro(int agFinanceiro) {
-        this.agFinanceiro = agFinanceiro;
+    public void setAgente(String agente) {
+        this.agente = agente;
     }
 
-    public String getNomeAgente() {
-        return nomeAgente;
-    }
-
-    public void setNomeAgente(String nomeAgente) {
-        this.nomeAgente = nomeAgente;
-    }
-
-    public int getVolumeTransacional() {
+    public double getVolumeTransacional() {
         return volumeTransacional;
     }
 
-    public void setVolumeTransacional(int volumeTransacional) {
+    public void setVolumeTransacional(double volumeTransacional) {
         this.volumeTransacional = volumeTransacional;
     }
 
-    public long getSucessos() {
-        return sucessos;
+    public int getStatus() {
+        return status;
     }
 
-    public void setSucessos(long sucessos) {
-        this.sucessos = sucessos;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public long getFalhas() {
-        return falhas;
+    public long getCount() {
+        return count;
     }
 
-    public void setFalhas(long falhas) {
-        this.falhas = falhas;
+    public void setCount(long count) {
+        this.count = count;
     }
 
-    public long getFraudes() {
-        return fraudes;
-    }
-
-    public void setFraudes(long fraudes) {
-        this.fraudes = fraudes;
-    }
-
-    
 }
