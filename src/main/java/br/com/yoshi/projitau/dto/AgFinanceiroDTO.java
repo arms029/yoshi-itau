@@ -6,7 +6,7 @@ public class AgFinanceiroDTO {
 
     private int id;
     private String nome;
-    private int volumeTransacional;
+    private double volumeTransacional;
 
     public AgFinanceiroDTO(AgFinanceiro agFinanceiro){
         this.id = agFinanceiro.getId();
@@ -30,11 +30,11 @@ public class AgFinanceiroDTO {
         this.nome = nome;
     }
 
-    public int getVolumeTransacional() {
+    public double getVolumeTransacional() {
         return volumeTransacional;
     }
 
-    public void setVolumeTransacional(int volumeTransacional) {
+    public void setVolumeTransacional(double volumeTransacional) {
         this.volumeTransacional = volumeTransacional;
     }
 
